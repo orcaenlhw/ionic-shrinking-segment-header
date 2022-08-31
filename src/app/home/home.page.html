@@ -1,20 +1,64 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+<ion-header>
+  <ion-toolbar color="dark">
+    <ion-title> Profile </ion-title>
+    <ion-buttons right>
+      <ion-button ion-button icon-only>
+        <ion-icon name="beer"></ion-icon>
+      </ion-button>
+      <ion-button ion-button icon-only>
+        <ion-icon name="bicycle"></ion-icon>
+      </ion-button>
+      <ion-button ion-button icon-only>
+        <ion-icon name="boat"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-toolbar #toolbar>
+    <img src="../../assets/pexels4.jpg" />
+    <h2>Josh</h2>
+  </ion-toolbar>
+
+  <ion-toolbar color="light" mode="md">
+    <ion-segment color="dark" mode="md" [(ngModel)]="section">
+      <ion-segment-button value="one">
+        <ion-icon name="home"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="two">
+        <ion-icon name="cog"></ion-icon>
+      </ion-segment-button>
+      <ion-segment-button value="three">
+        <ion-icon name="chatbubbles"></ion-icon>
+      </ion-segment-button>
+    </ion-segment>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
-
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+<ion-content fullscreen scrollEvents="true" [appShrinkingSegmentHeader]="toolbar">
+  <div [ngSwitch]="section">
+    <ion-list *ngSwitchCase="'one'">
+      <ion-item *ngFor="let something of somethings">
+        <ion-thumbnail item-left>
+          <img src="../../assets/pexels4.jpg" />
+        </ion-thumbnail>
+        <h2>Something</h2>
+      </ion-item>
+    </ion-list>
+    <ion-list *ngSwitchCase="'two'">
+      <ion-item *ngFor="let something of somethings">
+        <ion-thumbnail item-left>
+          <img src="../../assets/pexels4.jpg" />
+        </ion-thumbnail>
+        <h2>Something</h2>
+      </ion-item>
+    </ion-list>
+    <ion-list *ngSwitchCase="'three'">
+      <ion-item *ngFor="let something of somethings">
+        <ion-thumbnail item-left>
+          <img src="../../assets/pexels4.jpg" />
+        </ion-thumbnail>
+        <h2>Something</h2>
+      </ion-item>
+    </ion-list>
   </div>
 </ion-content>
